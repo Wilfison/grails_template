@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersAdminController < ApplicationAuthorizedController
-  before_action :authenticate_user!
   before_action :set_collections, only: %i[edit update new]
   before_action :set_user, only: %i[edit update destroy]
   before_action :format_params, only: %i[update create]

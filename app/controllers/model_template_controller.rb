@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ModelTemplatesController < ApplicationAuthorizedController
-  before_action :authenticate_user!
   before_action :find_resource, except: %i[index new create]
 
   ACCESS_ID = MENU_ACESSO[:resources]
