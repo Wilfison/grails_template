@@ -20,7 +20,7 @@ class ModelTemplatesController < ApplicationAuthorizedController
   def edit; end
 
   def update
-    if @resource.update(resource_item_params)
+    if @resource.update(resource_params)
       flash[:notice] = 'Atualizado com sucesso!'
       return redirect_to resources_path
     end
@@ -29,7 +29,7 @@ class ModelTemplatesController < ApplicationAuthorizedController
   end
 
   def create
-    @resource = ModelTemplate.new(resource_item_params)
+    @resource = ModelTemplate.new(resource_params)
 
     if @resource.save
       flash[:notice] = 'Criado com sucesso!'
@@ -54,9 +54,9 @@ class ModelTemplatesController < ApplicationAuthorizedController
     @resource = ModelTemplate.find(params[:id])
   end
 
-  def resource_item_params
+  def resource_params
     params.require(:resource).permit(
-      :resource_params
+      :resource_param_items
     )
   end
 end
