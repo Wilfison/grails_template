@@ -1,0 +1,18 @@
+.dropdown.col-md-2
+  %button#dropdownFilter.btn.btn-default.dropdown-toggle{'aria-expanded': 'false', 'aria-haspopup': 'true', 'data-bs-toggle': 'dropdown', type: 'button'}
+    = icon('fa-solid', 'sliders-h')
+    Filtrar
+
+  .dropdown-menu.p-2{'aria-labelledby': 'dropdownFilter'}
+    = search_form_for @q, url: users_admin_index_path do |f|
+      .form-group
+        = f.label :name_cont, 'Name'
+        = f.search_field :name_cont, class: 'form-control'
+
+      .d-grid.gap-2
+        = f.submit class: 'btn btn-primary mt-3', value: 'Filtrar'
+
+        - if params[:q].present?
+          = link_to request.path, class:'btn btn-default' do
+            = icon('fa-solid', 'times')
+            Limpar Filtros

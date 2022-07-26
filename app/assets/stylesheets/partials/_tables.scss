@@ -1,0 +1,120 @@
+@import "./variables";
+
+table {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  border-collapse: collapse;
+
+  & > :not(:first-child) {
+    border-top: 2px solid $gray-500 !important;
+  }
+
+  &.table-sm th, &.table-sm td {
+    padding: 0.3rem;
+  }
+
+  & th.border-right, & td.border-right {
+    border-right: 1px solid #909090 !important;
+  }
+
+  td, th {
+    &.border-top-dark {
+      border-top-color: $dark !important;
+    }
+    &.border-bottom-dark {
+      border-bottom-color: $dark !important;
+    }
+    &.border-left-dark {
+      border-left-color: $dark !important;
+    }
+    &.border-right-dark {
+      border-right-color: $dark !important;
+    }
+  }
+
+  thead th {
+    border-bottom: none !important;
+    border-top: none !important;
+    padding: 1.2rem 1rem;
+    // background-color: #ffffff !important;
+    
+    &.table-actions {
+      width: 130px;
+    }
+  }
+
+  td {
+    margin: 5px 0;
+    font-size: $font-size-sm;
+  }
+
+  tr.tr-total td, tr.tr-total td:hover {
+    background-color: rgb(228, 228, 228) !important;
+    color: $gray-700;
+  }
+
+  &.table-bordered th, &.table-bordered td {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+  }
+
+  &.table-report td:last-child {
+    width: unset;
+  }
+
+  &.column-striped tr {
+    td:nth-of-type(odd), th:nth-of-type(odd)  {
+      background-color: rgba($color: $black, $alpha: 0.04) !important;
+    }
+  }
+}
+
+.table-md {
+  td {
+    padding: 0.5rem !important;
+  }
+}
+
+.table-hover tbody tr:hover {
+  background-color: #9cbde0 !important;
+  color: #fff  !important;
+  a, .badge, .badge-defalt{
+    color: #FFFFFF !important;
+  }
+  
+  i {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+  }
+  
+  a{
+    color: #FFFFFF !important;
+
+    &.dropdown-item {
+      color: #343a40 !important;
+      
+      i { color: #343a40 !important; }
+
+      &:hover{
+        color: #FFFFFF !important;
+        i { color: #FFFFFF !important; }
+      }
+    }
+  }
+  .btn-default {
+    color: $dark !important;
+
+    i {
+      color: $dark !important;
+    }
+  }
+
+  .dropdown-item {
+    color: $dark !important;
+    i { color: $dark !important; }
+
+    &:hover {
+      color: #FFFFFF !important;
+      i { color: #FFFFFF !important; }
+    }
+  }
+}

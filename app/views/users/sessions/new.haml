@@ -1,0 +1,25 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .card.card-body
+    .row.py-5
+      .col-md-6.flex-column-center-center
+        = image_tag 'login.png', alt: 'imagem de login', class: 'image-responsive'
+      .col-md-6
+        %h2.mb-5 Log in
+        .input-group.mb-3
+          %label.input-group-text{for: "#{resource_name}_email"}
+            = icon 'fa-solid', 'envelope'
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email'
+        .input-group.mb-3
+          %label.input-group-text{for: "#{resource_name}_password"}
+            = icon 'fa-solid', 'key'
+          = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Senha'
+
+        - if devise_mapping.rememberable?
+          .field.mb-4
+            = f.check_box :remember_me
+            = f.label :remember_me
+
+        .actions.mb-4
+          = f.submit "Entar", class: 'btn btn-success mb-2 px-5'
+
+        -# = render "devise/shared/links"

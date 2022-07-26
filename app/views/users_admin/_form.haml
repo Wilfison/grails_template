@@ -1,0 +1,33 @@
+= form_for @user, url: users_admin_index_path do |f|
+  .row
+    .form-group.mb-3.col-md-4
+      = f.label :name
+      = f.text_field :name, {class: 'form-control'}
+    .form-group.mb-3.col-md-4
+      = f.label :email
+      = f.text_field :email, {class: 'form-control'}
+
+  .row
+    .form-group.mb-3.col-md-4
+      = f.label :password
+      = f.password_field :password, {class: 'form-control'}
+
+    .form-group.mb-3.col-md-4
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, {class: 'form-control'}
+
+  .row
+    - if current_user.admin?
+      .form-group.mb-3.col-md-2
+        = f.label :admin
+        = f.select :admin, options_for_select([["Sim", "true"], ["Não", "false"]], { selected: @user.admin? ? "true" : "false"}), {prompt: "Selecione..."}, {class: "form-control"}
+  .row
+    .form-group.mb-3.col-md-2
+      %button.btn.btn-success{type: 'submit'}
+        = icon('fa-regular', 'floppy-disk')
+        Salvar
+
+  .row
+    %h2.form-head-title.ml-3 Acesso Avançado
+    .col-12
+      = render 'access_control', accesses: @accesses, count: 0, permitions: true

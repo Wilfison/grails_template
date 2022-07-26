@@ -1,0 +1,5 @@
+"pt-BR":
+  pundit:
+    default: "Você não pode executar esta ação."
+    access_menu_policy:
+      has_access?: "Você não tem autorização para acessar este item!"

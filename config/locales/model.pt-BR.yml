@@ -1,0 +1,28 @@
+'pt-BR':
+  boleanos:
+    'true': 'Sim'
+    'false': 'Não'
+  log_fields: &log_fields
+    created_at: Data criação
+    updated_at: Data Atualização
+    created_by: Criado por
+    updated_by: Atualizado por
+  activerecord:
+    errors:
+      models: &models
+        projeto:
+          attributes:
+            nome: &required
+              blank: não pode ficar em branco
+              required: não pode ficar em branco
+              invalid: inválido
+        
+      messages:
+        record_invalid: Há campos que não podem ficar em branco!
+
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+
+    attributes:

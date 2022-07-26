@@ -1,0 +1,23 @@
+= title '$resource_title'
+
+.row.justify-content-between.mb-3
+  = render 'filter'
+  .col-md-2
+    = link_to 'Novo', new_$resource_path, class: 'btn btn-primary btn-block'
+
+%table.table.table-hover.table-sm.table-striped
+  %thead
+    %tr
+      %th $fields
+      %th
+  %tbody
+    - @$resources.each do |$resource|
+      %tr
+        %td $fields
+        %td.text-center
+          = link_to edit_$resource_path($resource), title: 'Editar', class: 'btn btn-sm btn-warning mx-1' do
+            = icon('fa-solid', 'pen-to-square')
+          -# = link_to $resource_path($resource), title: 'Excluir', method: :delete, data: {confirm: 'Confirma a remoção do item?'}, class: 'btn btn-sm btn-danger mx-1' do
+          -#   = icon('fa-regular', 'trash-can')
+
+= render 'shared/pagination', model: @$resources

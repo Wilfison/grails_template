@@ -1,0 +1,25 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .row.justify-content-center
+    .jumbotron.bg-white.col-md-6.shadow-sm
+      
+      %h2 Criar Conta
+      = render 'devise/shared/error_messages', resource: resource
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+      
+      .form-group
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        = f.password_field :password, autocomplete: 'new-password', class: 'form-control'
+      
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control'
+      
+      .actions.mb-4
+        = f.submit 'Criar Conta', class: 'btn btn-success mb-2'
+
+      = render 'users/shared/links'

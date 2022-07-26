@@ -1,0 +1,15 @@
+@import './variables';
+
+.card {
+  &.card-projeto {
+    border-radius: $border-radius-lg;
+    cursor: pointer;
+    height: 100%;
+
+    .card-header {
+      border-top-left-radius: $border-radius-lg;
+      border-top-right-radius: $border-radius-lg;
+    }
+  }
+}
+

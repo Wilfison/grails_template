@@ -1,0 +1,8 @@
+.col-md-12    
+  .d-flex.justify-content-center{style: 'margin-top: 20px'}
+    %nav
+      %ul.pagination
+        %li.page-item
+          = link_to_prev_page_index model, 'Página Anterior', class: 'btn btn-outline-dark'
+        %li.page-item
+          = link_to_next_page_index model, 'Próxima Página', class: 'btn btn-outline-dark'

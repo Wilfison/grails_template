@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{charset: "UTF-8"}
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}
+    %meta{content: "ie=edge", "http-equiv": "X-UA-Compatible"}
+    
+    %title= content_for?(:title) ? "#{yield(:title)} - GrailsTemplate" : 'GrailsTemplate'
+
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    
+    -# = stylesheet_pack_tag 'application', media: 'all'
+    -# = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'shared/navigation'
+    .p-4
+      = render 'shared/alerts'
+
+    .container-xxl
+      - if content_for?(:title)
+        %h1.h3.text-gray-800
+          = "#{yield(:title)}"
+
+
+      - if content_for?(:hide_default_layout)
+        .col-12
+          = yield
+
+      - else
+        .col-12.card.card-body.card_content
+          = yield

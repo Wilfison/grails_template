@@ -1,0 +1,21 @@
+- accesses.each do |session|
+  .mt-3
+    %h3{title: "session[#{count}]"}= session[:description]
+  .row.p-3
+    - session[:items].each do |block|
+      - block.each do |header, items|
+        .col-md-12.mb-3.py-3.border
+          .row.mb-3
+            %h5= header
+
+          .row
+            - items.each do |item|
+              .col-md-3.d-flex.mb-2
+                .check-switch
+                  .check-switcher
+                    = check_box_tag "access[]", item[:id], @user.user_menu_items.include?(item[:id]), id: "access_#{count}_id", class: 'switch'
+                    %label{class: 'label-switch success', for: "access_#{count}_id"}
+
+                %label{for: "access_#{count}_id"}= item[:description]
+
+              - count += 1

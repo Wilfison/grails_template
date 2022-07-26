@@ -1,0 +1,38 @@
+= hide_default_layout
+
+.row.mb-3
+  .col-md-3
+    = render 'card_count', titulo: 'Leads', valor: 589, icon_name: 'fa-solid fa-bullseye'
+  .col-md-3
+    = render 'card_count', titulo: 'Demo Accounts', valor: 1022, icon_name: 'fa-regular fa-folder'
+  .col-md-3
+    = render 'card_count', titulo: 'Live Accounts', valor: 676, icon_name: 'fa-regular fa-circle-user'
+  .col-md-3
+    = render 'card_count', titulo: 'Sub Partiners', valor: 128, icon_name: 'fa-solid fa-users-rectangle'
+
+.row.mb-3
+  .col-md-6
+    = render 'card', titulo: 'Summary', icon_name: 'fa-solid fa-list' do
+      %table.table
+        %tr
+          %td Tipo de Acordo
+          %th.text-end CPA
+        %tr
+          %td Comissão
+          %th.text-end R$ 1.322,35
+        %tr
+          %td Link Direto
+          %td.text-end= link_to 'dlink.com/meu_link'
+
+  .col-md-6
+    = render 'card', titulo: 'Accounts Statistics', icon_name: 'fa-solid fa-chart-line' do
+      = pie_chart [['Contas ativas', 654], ['Contas Inativas', 22]], height: "200px", donut: true, library: { chart: { backgroundColor: 'transparent' }, plotOptions: {pie: {allowPointSelect: true, cursor: 'pointer', dataLabels: { enabled: false }, showInLegend: true}}, legend: {align: 'left', verticalAlign: 'top', layout: 'vertical', x: 0, y: 50, itemMarginBottom: 5 } }
+
+.row.mb-3
+  .col-md-12
+    = render 'card', titulo: 'Carteira', icon_name: 'fa-solid fa-wallet' do
+      - chart_data = (1..6).map {|mes| [formata_mes(Date.new(2022, mes)).titleize, rand(100..1000)]}
+
+      = column_chart chart_data, library: { chart: { backgroundColor: 'transparent' } }
+
+= javascript_include_tag 'charts', 'data-turbolinks-track': 'reload'

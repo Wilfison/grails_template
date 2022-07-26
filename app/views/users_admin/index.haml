@@ -1,0 +1,21 @@
+= title 'Usuários'
+
+.row.justify-content-between.mb-3
+  = render 'filter'
+  .col-md-2.d-grid
+    = link_to 'Novo', new_users_admin_path, class: 'btn btn-primary'
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th.table-actions
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.email
+        %td.text-center
+          = link_to edit_users_admin_path(user), title: 'Editar', class: 'btn btn-sm btn-warning mx-1' do
+            = icon('fa-solid', 'pen-to-square')

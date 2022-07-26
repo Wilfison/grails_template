@@ -1,0 +1,24 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-navbar.shadow-sm
+  .container-xxl
+    %a.navbar-brand{href: '/'} GrailsTemplate
+    %button.navbar-toggler{'aria-controls': 'mainNav', 'aria-expanded': 'false', 'aria-label': 'Toggle navigation', 'data-target': '#mainNav', 'data-toggle': 'collapse', type: 'button'}
+      %span.navbar-toggler-icon
+    #mainNav.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto
+        - current_user.menu_navigation.each do |menu_item|
+          %li.nav-item.dropdown
+            %a#navbarDropdown.nav-link.dropdown-toggle{'aria-expanded': 'false', 'data-bs-toggle': 'dropdown', type: 'button'}
+              = menu_item[:description]
+
+            .dropdown-menu{'aria-labelledby': 'navbarDropdown'}
+              - menu_item[:sessions].each do |block|
+                - block.each do |session|
+                  - session[:items].each do |item|
+                    = link_to item[:description], item[:action], class: 'dropdown-item' 
+
+      %ul.navbar-nav
+        %li.nav-item
+          - if user_signed_in?
+            = link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link'
+          - else
+            = link_to 'Login', new_user_session_path, class: 'nav-link'
