@@ -1,7 +1,8 @@
 {
   "variaveis_views": [
     "app/views/layouts/devise.haml",
-    "app/views/layouts/application.haml"
+    "app/views/layouts/application.haml",
+    "app/views/shared/_navigation.haml"
   ],
   "variaveis_nome_projeto": [
     "package.json",
@@ -10,8 +11,7 @@
     "config/environments/production.rb"
   ],
   "variaveis_constantize": [
-    "config/application.rb",
-    "app/views/shared/_navigation.haml"
+    "config/application.rb"
   ],
   "adapters": {
     "postgresql": {
