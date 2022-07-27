@@ -5,9 +5,7 @@
   ],
   "variaveis_nome_projeto": [
     "package.json",
-    "config/cable.yml"
-  ],
-  "variaveis_nome_database": [
+    "config/cable.yml",
     "config/database.yml",
     "config/environments/production.rb"
   ],
